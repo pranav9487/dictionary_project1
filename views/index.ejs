@@ -26,7 +26,7 @@
        <div class="result">
         <div class="word">
             <h3 id="word-heading"><%= info.word %></h3>
-            <button><i class="fa-solid fa-volume-high"></i></button>
+            <button onclick="aa()"><i class="fa-solid fa-volume-high"></i></button>
         </div>
         <div class="details">
             <p><%= info.partOfSpeech %></p>
@@ -45,3 +45,15 @@
   <script src="./index.js" charset="UTF-8"></script>  
 </body>
 </html>
+<script>
+    function aa(){
+        var audioSource = "<%= info.audio%>";
+        if(audioSource && audioSource!=="N/A"){
+          var sound = new Audio(audioSource);
+          sound.play();
+        }
+        else{
+            alert("unable to play sound for this word");
+        }
+    }
+</script>
